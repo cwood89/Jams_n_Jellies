@@ -5,6 +5,27 @@
 * License: https://bootstrapmade.com/license/
 */
 
+
+#modal-button {
+    cursor: pointer;
+    display: inline-block;
+    padding: 8px 20px 12px 20px;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1;
+    color: #444444;
+    margin: 0 4px 8px 4px;
+    transition: all ease-in-out 0.3s;
+    border-radius: 50px;
+    background: #f2f2f2;
+  }
+  
+  #modal-button:hover {
+    background: #e96b56;
+    color: #fff;
+  }
+}
+
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -1152,6 +1173,10 @@ section {
 /*--------------------------------------------------------------
 # Portfolio Details
 --------------------------------------------------------------*/
+#portfolio-details {
+  padding-bottom: 0;
+}
+
 .portfolio-details .portfolio-title {
   font-size: 26px;
   font-weight: 700;
@@ -1175,10 +1200,6 @@ section {
 
 .portfolio-details .portfolio-details-carousel .owl-dot.active {
   background-color: #e96b56 !important;
-}
-
-.portfolio-details .portfolio-info {
-  padding-top: 45px;
 }
 
 .portfolio-details .portfolio-info h3 {
