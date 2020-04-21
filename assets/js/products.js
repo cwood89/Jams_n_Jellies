@@ -1,24 +1,38 @@
 function Product(name, popularity, image, description) {
   this.id = name.replace(/\s/g, '');
   this.name = name;
-  this.price = 7.99;
+  this.priceSmall = 4.99;
+  this.priceLarge = 7.99;
+  this.sizeSmall = "8oz";
+  this.sizeLarge = "12oz";
   this.popularity = popularity; // 1-10 scale
   this.image = image;
   this.description = description
 }
 let products = [
-  new Product("Super Berry", 6, "images/superberry.png"),
-  new Product("Strawberry", 8, "images/Strawberry.png"),
-  new Product("Raspberry", 5, "images/raspberry.png"),
-  new Product("Mixedberry", 6, "images/mixberry.png"),
-  new Product("Lemon", 4, "images/lemon.png"),
-  new Product("Grape Jelly", 9, "images/grapejelly.png"),
-  new Product("Ginger Cardamom Pear Butter", 3, "images/Ginger-Cardamom-Pear-Butter.png"),
-  new Product("Cinnamon Blueberry", 4, "images/cinnamonblueberry.png"),
-  new Product("Cinnamon Spiced Triple Berry Jam", 6, "images/Cinnamon-Spiced-Triple-Berry-Jam.png"),
-  new Product("Blueberry", 7, "images/blueberry.png"),
-  new Product("Blackberry", 7, "images/Blackberry.png"),
-  new Product("Apple Butter", 10, "images/applebutter.png")
+  new Product("Super Berry", 6, "images/superberry.png", "Super Berry is exactly what you imagine, the perfect blend of sweet and sour berries."),
+
+  new Product("Strawberry", 8, "images/Strawberry.png", "Strawberry jelly is the stuff of childhood dreams. Sunday afternoon tea is never right without it. It is an essential part of every pantry."),
+
+  new Product("Raspberry", 5, "images/raspberry.png", "The intense raspberry flavor of this jam makes it a longtime favorite. If you're not going to eat raspberries fresh out of hand by the fistful, this jam is the next best thing."),
+
+  new Product("Mixed Berry", 6, "images/mixberry.png", "The perfect choice for the undecided, this jam has a bit of everything."),
+
+  new Product("Lemon", 4, "images/lemon.png", "Jazz up a biscuit, English muffin, or slice of toast with a spoonful of Lemon Jelly. You know what they say (or what they should say): When life give you lemons, make Lemon Jelly!"),
+
+  new Product("Grape Jelly", 9, "images/grapejelly.png", " America's favorite. Every jar starts with one pound of grapes. For delicious, one‑of‑a‑kind taste with no artificial flavors or colors."),
+
+  new Product("Ginger Cardamom Pear Butter", 3, "images/Ginger-Cardamom-Pear-Butter.png", "Spread this fruity butter on muffins or whole grain baguettes and savor the flavors of pear and ginger."),
+
+  new Product("Cinnamon Blueberry", 4, "images/cinnamonblueberry.png", "Many people might think warm spices belong to the winter holidays, but I find them most enjoyable paired with summer fruit.The hint of cinnamon perfectly balances the sweet and tart flavor of blueberries."),
+
+  new Product("Cinnamon Spiced Triple Berry Jam", 6, "images/Cinnamon-Spiced-Triple-Berry-Jam.png", "On waffles or in cocktails, this beautiful spiced triple berry jam is a delicious addition to your pantry."),
+
+  new Product("Blueberry", 7, "images/blueberry.png", "The health benefits from eating blueberries are so great that we decided to preserve them as a jam, and honestly we can't pick what we like it on the most."),
+
+  new Product("Blackberry", 7, "images/Blackberry.png", " Savor the tart, sweet flavor of fresh summer blackberries all year round with this Blackberry Jelly recipe. Can complement any dessert."),
+
+  new Product("Apple Butter", 10, "images/applebutter.png", "This homemade Apple Butter is smooth, creamy, and velvety. Super healthy, delicious, and perfect for spreading on toast, muffins, pancakes etc.")
 ];
 
   let row1 = $("#row-1")
@@ -28,7 +42,7 @@ let products = [
       <img src="${product.image}"class="img-fluid" alt="">
       <div class="portfolio-info">
         <h4>${product.name}</h4>
-        <p>${product.price}</p>
+        <p>${product.priceSmall} / ${product.priceLarge}</p>
         <div class="portfolio-links">
           <a href="#" title="Add to Cart"><i class="bx bx-plus"></i></a>
           <a  data-toggle="modal" data-target="#${product.id}"title="More Details"><i class="bx bx-link"></i></a>
@@ -41,7 +55,7 @@ let products = [
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">${product.name}</h5>
+          <h5 class="modal-title" id="exampleModalLongTitle">Product Information</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -57,19 +71,27 @@ let products = [
                 <img src="${product.image}"class="img-fluid" alt="">
               </div>
     
-              <div class="col-lg-4 portfolio-info">
-                <h3>Product Information</h3>
+              <div class="col-lg-4 my-auto portfolio-info">
+                <h3>${product.name}</h3>
                 <ul>
-                  <li><strong>Category</strong>: Web design</li>
-                  <li><strong>Client</strong>: ASU Company</li>
-                  <li><strong>Project date</strong>: 01 March, 2020</li>
-                  <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
+                  <li><strong>Popularity</strong>:
+                  ${product.popularity}/10</li>
+                  <li>
+                  <strong>Small</strong>: ${product.priceSmall}
+                  <br>
+                  <strong>Large</strong>: ${product.priceLarge}</li>
+                  <li>
+                  <strong>Small</strong>: ${product.sizeSmall}
+                  <br>
+                  <strong>Large</strong>: ${product.sizeLarge}
+                  </li>
+                  <li><a href="#">Add to Cart</a></li>
                 </ul>
                 </div>
-                <div class="row">
+                <div class="row mt-2">
                   <div class="container">
                     <p>
-                    Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
+                    ${product.description}
                     </p>
                     </div>
                 </div>
@@ -89,11 +111,4 @@ let products = [
   row1.append(item)
    
   })
-
-  // <!-- Button trigger modal -->
-  // <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-  //   Launch demo modal
-  // </button>
-  
-  // <!-- Modal -->
   
